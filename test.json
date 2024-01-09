@@ -1,0 +1,101 @@
+[
+  {
+    "short_term_order_placement": "CnIKcAogL2R5ZHhwcm90b2NvbC5jbG9iLk1zZ1BsYWNlT3JkZXISTApKCjYKLworZHlkeDFkemRhamRkZGVqcnpkNzg4bDltaGR3cDJwNmtqNzNsYzI1MDNqORAJFVvOrroQAhjAw5MHIOCPx7sRKMfwrAISWgpSCkYKHy9jb3Ntb3MuY3J5cHRvLnNlY3AyNTZrMS5QdWJLZXkSIwohA4eNdrrH/gkyZdHpNMUj+42crwv6fvuRzcbhh9WUz7ysEgQKAggBGMCbAhIEEMCEPRpAJtmJRxx852udseQPB9wgMhvcDhaQb3GtsX7+9DYtebtsYpbMB9dguEQvFkIWCo1vK0eBjGAMTDNoTMVKRj2Mjg=="
+  },
+  {
+    "match": {
+      "match_orders": {
+        "taker_order_id": {
+          "subaccount_id": {
+            "owner": "dydx14zzueazeh0hj67cghhf9jypslcf9sh2n5k6art",
+            "number": 0
+          },
+          "client_id": 123,
+          "order_flags": 64,
+          "clob_pair_id": 0
+        },
+        "fills": [
+          {
+            "fill_amount": "10000000",
+            "maker_order_id": {
+              "subaccount_id": {
+                "owner": "dydx1dzdajdddejrzd788l9mhdwp2p6kj73lc2503j9",
+                "number": 9
+              },
+              "client_id": 3132018267,
+              "order_flags": 0,
+              "clob_pair_id": 0
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "short_term_order_placement": "CnYKdAogL2R5ZHhwcm90b2NvbC5jbG9iLk1zZ1BsYWNlT3JkZXISUApOCjgKLworZHlkeDFjdXVkNTBwM3J0cW12M2hjYXZ3amRod2NzeXJrZnZuZ2s4dHJ6NRABFSTJjaAgIBACGMC6mQYggKmCnRUovPCsAjgCEloKUgpGCh8vY29zbW9zLmNyeXB0by5zZWNwMjU2azEuUHViS2V5EiMKIQNbyVTFQTzqPc9rg4Q71xyEXKSQgUgG9TfjMA/joUHKmhIECgIIARjXmwISBBDAhD0aQH4cXxS8ap9gQv1m2a6l6of2/v1O8Plduu7adKvfZcMpdc9WLfOm4Y6vq7wItnSUJLKFvGk7L3Bg9IId8P4iJEk="
+  },
+  {
+    "short_term_order_placement": "CnYKdAogL2R5ZHhwcm90b2NvbC5jbG9iLk1zZ1BsYWNlT3JkZXISUApOCjgKLworZHlkeDFoa2Ezc3pmMmpoeG1nYW5temR4N3A4cnZwNXltcmNhcnhmMjNmMxAJFWPFjaAgIBABGMC6mQYggPHSpBUox/CsAjgDEloKUgpGCh8vY29zbW9zLmNyeXB0by5zZWNwMjU2azEuUHViS2V5EiMKIQOHjAlLWAC32WJbos2YWsEtaDGBchh3Go1JZ+1EhouPthIECgIIARiNnAISBBDAhD0aQIZX/G4R7H9kBI6BEQf65TrlEzlgtFMeYymOllKOpfhiTSsjueZLkIdx1dameDvBhFkbVxXHbPJvbVz+KId5qk4="
+  },
+  {
+    "match": {
+      "match_orders": {
+        "taker_order_id": {
+          "subaccount_id": {
+            "owner": "dydx1hka3szf2jhxmganmzdx7p8rvp5ymrcarxf23f3",
+            "number": 9
+          },
+          "client_id": 2693645667,
+          "order_flags": 0,
+          "clob_pair_id": 32
+        },
+        "fills": [
+          {
+            "fill_amount": "13000000",
+            "maker_order_id": {
+              "subaccount_id": {
+                "owner": "dydx1cuud50p3rtqmv3hcavwjdhwcsyrkfvngk8trz5",
+                "number": 1
+              },
+              "client_id": 2693646628,
+              "order_flags": 0,
+              "clob_pair_id": 32
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "short_term_order_placement": "CnQKcgogL2R5ZHhwcm90b2NvbC5jbG9iLk1zZ1BsYWNlT3JkZXISTgpMCjYKLworZHlkeDFkemRhamRkZGVqcnpkNzg4bDltaGR3cDJwNmtqNzNsYzI1MDNqORAJFZrKrroQARjAw5MHIOCPx7sRKMfwrAI4AxJaClIKRgofL2Nvc21vcy5jcnlwdG8uc2VjcDI1NmsxLlB1YktleRIjCiEDh412usf+CTJl0ek0xSP7jZyvC/p++5HNxuGH1ZTPvKwSBAoCCAEYwJsCEgQQwIQ9GkCut8lEo96qsFFAMvUFNW1edDMDTmhkkQ3tSq95q/vvIh4aYYABVQG68YE9Dxy5wFJmQhc695XnxdSrHhhYPlks"
+  },
+  {
+    "match": {
+      "match_orders": {
+        "taker_order_id": {
+          "subaccount_id": {
+            "owner": "dydx1dzdajdddejrzd788l9mhdwp2p6kj73lc2503j9",
+            "number": 9
+          },
+          "client_id": 3132017306,
+          "order_flags": 0,
+          "clob_pair_id": 0
+        },
+        "fills": [
+          {
+            "fill_amount": "15000000",
+            "maker_order_id": {
+              "subaccount_id": {
+                "owner": "dydx12404y3ctjq3f9vwz5wxp9fxw8es0hpwhqd26v0",
+                "number": 0
+              },
+              "client_id": 1871672178,
+              "order_flags": 64,
+              "clob_pair_id": 0
+            }
+          }
+        ]
+      }
+    }
+  }
+]
