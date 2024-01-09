@@ -1,14 +1,15 @@
 import {
   Network,
-  ValidatorClient,
+  CompositeClient,
   BECH32_PREFIX,
   LocalWallet,
   OrderFlags,
   SubaccountClient,
-  Order_Side,
-  Order_TimeInForce,
+  OrderSide,
+  OrderType,
+  OrderExecution,
+  OrderTimeInForce,
 } from '@dydxprotocol/v4-client-js';
-import Long from 'long';
 
 async function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -16,46 +17,43 @@ async function sleep(ms: number): Promise<void> {
 
 async function test(): Promise<void> {
 
-  const client = await ValidatorClient.connect(Network.testnet().validatorConfig);
+  const client = await CompositeClient.connect(Network.testnet());
   console.log('**Client**');
   console.log(client);
 
-  const mnemonic = 'mirror actor skill push coach wait confirm orchard lunch mobile athlete gossip awake miracle matter bus reopen team ladder lazy list timber render wait';
+  // Set mnemonic here
+  const mnemonic = '';
   const wallet = await LocalWallet.fromMnemonic(mnemonic, BECH32_PREFIX);
   console.log(wallet);
 
   const subaccount = new SubaccountClient(wallet, 0);
   const clientId = 123; // set to a number, can be used by the client to identify the order
-  const clobPairId = 0; // perpertual market id
-  const side = Order_Side.SIDE_BUY; // side of the order
-  const quantums = Long.fromNumber(10_000_000); // quantums are calculated by the size if the order
-  // subticks are calculated by the price of the order
-  const subticks = Long.fromNumber(40_000_000_000);
+  const market = 'BTC-USD';
+  const type = OrderType.LIMIT; // order type
+  const side = OrderSide.SELL; // side of the order
   // TimeInForce indicates how long an order will remain active before it is executed or expires
-  const timeInForce = Order_TimeInForce.TIME_IN_FORCE_UNSPECIFIED;
-  const orderFlags = OrderFlags.LONG_TERM; // either SHORT_TERM, LONG_TERM or CONDITIONAL
+  const timeInForce = OrderTimeInForce.GTT;
+  const timeInForceSeconds = (timeInForce === OrderTimeInForce.GTT) ? 60 : 0;
+  const execution = OrderExecution.DEFAULT;
+  const price = 50_000;
+  const size = 0.01;
+  const postOnly = false; // If true, order is post only
   const reduceOnly = false; // if true, the order will only reduce the position size
-  // const height = await client.get.latestBlockHeight();
-  // const goodTilBlock = height + 3;
-  const now = new Date();
-  const millisecondsPerSecond = 1000;
-  const interval = 60 * millisecondsPerSecond;
-  const future = new Date(now.valueOf() + interval);
-  const goodTilBlockTime = Math.round(future.getTime() / 1000);
 
   try {
-    const tx = await client.post.placeOrder(
+    const tx = await client.placeOrder(
       subaccount,
-      clientId,
-      clobPairId,
+      market,
+      type,
       side,
-      quantums,
-      subticks,
+      price,
+      size,
+      clientId,
       timeInForce,
-      orderFlags,
+      timeInForceSeconds,
+      execution,
+      postOnly,
       reduceOnly,
-      undefined,
-      goodTilBlockTime,
     );
     console.log('**Order Tx**');
     console.log(tx);
@@ -64,6 +62,22 @@ async function test(): Promise<void> {
   }
 
   await sleep(5000);  // wait for placeOrder to complete
+
+  try {
+    const tx = await client.cancelOrder(
+      subaccount,
+      clientId,
+      OrderFlags.LONG_TERM,
+      market,
+      0,
+      300,
+    );
+    console.log('**Cancel Order Tx**');
+    console.log(tx);
+
+  } catch (error) {
+    console.log(error.message);
+  }
 
 }
 
