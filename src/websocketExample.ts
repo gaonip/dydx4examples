@@ -1,6 +1,5 @@
-import { Network, } from '@dydxprotocol/v4-client-js';
+import { Network } from '@dydxprotocol/v4-client-js';
 import { IncomingMessageTypes, SocketClient } from '@dydxprotocol/v4-client-js/build/src/clients/socket-client';
-
 
 function test(): void {
   const mySocket = new SocketClient(
