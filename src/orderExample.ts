@@ -23,8 +23,8 @@ async function test(): Promise<void> {
   console.log('**Client**');
   console.log(client);
 
-  // Set mnemonic here
-  const mnemonic = 'mirror actor skill push coach wait confirm orchard lunch mobile athlete gossip awake miracle matter bus reopen team ladder lazy list timber render wait';
+  ////////////////////// Set mnemonic here //////////////////////
+  const mnemonic = '<FILL_THIS_OUT>';
   const wallet = await LocalWallet.fromMnemonic(mnemonic, BECH32_PREFIX);
   console.log(wallet);
 
