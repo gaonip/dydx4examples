@@ -1,0 +1,68 @@
+{
+    "type": "channel_data",
+    "connection_id": "d2723046-6bbb-4f51-95b4-0bf6c5f27733",
+    "message_id": 4,
+    "id": "dydx14zzueazeh0hj67cghhf9jypslcf9sh2n5k6art/0",
+    "channel": "v4_subaccounts",
+    "version": "2.4.0",
+    "contents": {
+      "orders": [
+        {
+          "id": "3174f0c9-d6c9-50cc-8cb1-df3222ab4f22",
+          "subaccountId": "8586bcf6-1f58-5ec9-a0bc-e53db273e7b0",
+          "clientId": "123",
+          "clobPairId": "0",
+          "side": "SELL",
+          "size": "0.01",
+          "price": "50000",
+          "status": "OPEN",
+          "type": "LIMIT",
+          "timeInForce": "GTT",
+          "postOnly": false,
+          "reduceOnly": false,
+          "orderFlags": "64",
+          "goodTilBlockTime": "2024-01-10T07:15:05.000Z",
+          "ticker": "BTC-USD",
+          "createdAtHeight": "4985063",
+          "updatedAt": "2024-01-10T07:14:05.710Z",
+          "updatedAtHeight": "4985063",
+          "clientMetadata": "0"
+        }
+      ]
+    }
+  },
+{
+  "type": "channel_data",
+  "connection_id": "d2723046-6bbb-4f51-95b4-0bf6c5f27733",
+  "message_id": 5,
+  "id": "dydx14zzueazeh0hj67cghhf9jypslcf9sh2n5k6art/0",
+  "channel": "v4_subaccounts",
+  "version": "2.4.0",
+  "contents": {
+    "orders": [
+      {
+        "id": "3174f0c9-d6c9-50cc-8cb1-df3222ab4f22",
+        "subaccountId": "8586bcf6-1f58-5ec9-a0bc-e53db273e7b0",
+        "clientId": "123",
+        "clobPairId": "0",
+        "side": "SELL",
+        "size": "0.01",
+        "totalFilled": "0",
+        "price": "50000",
+        "type": "LIMIT",
+        "status": "CANCELED",
+        "timeInForce": "GTT",
+        "postOnly": false,
+        "reduceOnly": false,
+        "orderFlags": "64",
+        "goodTilBlockTime": "2024-01-10T07:15:05.000Z",
+        "ticker": "BTC-USD",
+        "removalReason": "ORDER_REMOVAL_REASON_USER_CANCELED",
+        "createdAtHeight": "4985063",
+        "updatedAt": "2024-01-10T07:14:14.622Z",
+        "updatedAtHeight": "4985070",
+        "clientMetadata": "0"
+      }
+    ]
+  }
+}
