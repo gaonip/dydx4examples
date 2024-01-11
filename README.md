@@ -1,4 +1,5 @@
-Examples for the v4-Client Typescript client to plae an order and query the dYdX chain.
+Examples for the v4-Client Typescript client to place an order and query the dYdX chain.
+For more information, on a step-by-step guide, check here: https://far-fig-024.notion.site/DYDX-Orders-582c03043310482ca9e6690745f17628
 
 ## Development
 
@@ -66,12 +67,12 @@ npm install typescript ts-node
 - Run the websocket first to see orders for a given subaccount
 
 ```
-npx ts-node src/websocketExample.ts
+npx ts-node build/websocketExample.ts
 ```
 
 - Open a separate terminal to run the example orders. The first order is a BTC limit sell order.
 - The second order is an order that is not expected to be filed immediately, in that case the cancel order will cancel if not executed within 5 minutes.
 
 ```
-npx ts-node src/websocketExample.ts
+npx ts-node build/orderExample.ts
 ```
