@@ -1,5 +1,5 @@
 Examples for the v4-Client Typescript client to place an order and query the dYdX chain.
-For more information, on a step-by-step guide, check here: https://far-fig-024.notion.site/DYDX-Orders-582c03043310482ca9e6690745f17628
+For more information, on a step-by-step guide, check here: https://zinc-bongo-636.notion.site/DYDX-Orders-74952ac102584dfcbed8542cb9506b64?pvs=4
 
 ## Development
 
