@@ -9,6 +9,7 @@ import {
   OrderType,
   OrderExecution,
   OrderTimeInForce,
+  IndexerClient
 } from '@dydxprotocol/v4-client-js';
 
 import ordersParams from './human_readable_orders.json';
@@ -23,8 +24,10 @@ async function test(): Promise<void> {
   console.log('**Client**');
   console.log(client);
 
+  const indexerClient = new IndexerClient(Network.testnet().indexerConfig);
+
   ////////////////////// Set mnemonic here //////////////////////
-  const mnemonic = '<FILL_THIS_OUT>';
+  const mnemonic = 'mirror actor skill push coach wait confirm orchard lunch mobile athlete gossip awake miracle matter bus reopen team ladder lazy list timber render wait';
   const wallet = await LocalWallet.fromMnemonic(mnemonic, BECH32_PREFIX);
   console.log(wallet);
 
@@ -38,7 +41,7 @@ async function test(): Promise<void> {
     const side = OrderSide[orderParams.side as keyof typeof OrderSide]; // side of the order
     // TimeInForce indicates how long an order will remain active before it is executed or expires
     const timeInForce = OrderTimeInForce[orderParams.timeInForce as keyof typeof OrderTimeInForce];
-    const timeInForceSeconds = (timeInForce === OrderTimeInForce.GTT) ? 60 : 0;
+    const goodTilTimeInSeconds1 = (timeInForce === OrderTimeInForce.GTT) ? 350 : 0;
     const execution = OrderExecution.DEFAULT;
     const price = orderParams.price ?? 10000;
     const size = orderParams.size ?? 0.01;
@@ -55,7 +58,7 @@ async function test(): Promise<void> {
         size,
         clientId,
         timeInForce,
-        timeInForceSeconds,
+        goodTilTimeInSeconds1,
         execution,
         postOnly,
         reduceOnly,
@@ -68,25 +71,36 @@ async function test(): Promise<void> {
 
     await sleep(5000);  // wait for placeOrder to complete
 
-    const goodTillTimeInSeconds = 300;
+
+    const goodTillTimeInSeconds2 = 350;
     const orderFlags = OrderFlags.LONG_TERM;
     const goodTillBlock = 0;
 
-    try {
-      const tx = await client.cancelOrder(
-        subaccount,
-        clientId,
-        orderFlags,
-        market,
-        goodTillBlock,
-        goodTillTimeInSeconds,
-      );
-      console.log('**Cancel Order Tx**');
-      console.log(tx);
-
-    } catch (error) {
-      console.log(error.message);
-    }
+    const response = await indexerClient.account.getSubaccountOrders("dydx14zzueazeh0hj67cghhf9jypslcf9sh2n5k6art", 0);
+    const orders = response;
+    if (orders.length > 0) {
+      const order0 = orders[0];
+      console.log(order0);
+      if (order0.status != 'FILLED') {
+        await sleep(300000);  // wait for placeOrder to complete
+        
+        try {
+          const tx = await client.cancelOrder(
+            subaccount,
+            clientId,
+            orderFlags,
+            market,
+            goodTillBlock,
+            goodTillTimeInSeconds2,
+          );
+          console.log('**Cancel Order Tx**');
+          console.log(tx);
+        
+          } catch (error) {
+            console.log(error.message);
+          }
+        }
+      }        
   }
 }
 
