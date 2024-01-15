@@ -9,7 +9,7 @@ import {
   OrderType,
   OrderExecution,
   OrderTimeInForce,
-  IndexerClient
+  IndexerClient,
 } from '@dydxprotocol/v4-client-js';
 
 import ordersParams from './human_readable_orders.json';
@@ -26,7 +26,7 @@ async function test(): Promise<void> {
 
   const indexerClient = new IndexerClient(Network.testnet().indexerConfig);
 
-  ////////////////////// Set mnemonic here //////////////////////
+  // //////////////////// Set mnemonic here //////////////////////
   const mnemonic = 'mirror actor skill push coach wait confirm orchard lunch mobile athlete gossip awake miracle matter bus reopen team ladder lazy list timber render wait';
   const wallet = await LocalWallet.fromMnemonic(mnemonic, BECH32_PREFIX);
   console.log(wallet);
@@ -71,19 +71,17 @@ async function test(): Promise<void> {
 
     await sleep(5000);  // wait for placeOrder to complete
 
-
-    const goodTillTimeInSeconds2 = 350;
-    const orderFlags = OrderFlags.LONG_TERM;
-    const goodTillBlock = 0;
-
-    const response = await indexerClient.account.getSubaccountOrders("dydx14zzueazeh0hj67cghhf9jypslcf9sh2n5k6art", 0);
+    const response = await indexerClient.account.getSubaccountOrders('dydx14zzueazeh0hj67cghhf9jypslcf9sh2n5k6art', 0);
     const orders = response;
     if (orders.length > 0) {
       const order0 = orders[0];
       console.log(order0);
-      if (order0.status != 'FILLED') {
+      if (order0.status !== 'FILLED') {
         await sleep(300000);  // wait for placeOrder to complete
-        
+
+        const goodTillTimeInSeconds2 = 350;
+        const orderFlags = OrderFlags.LONG_TERM;
+        const goodTillBlock = 0;
         try {
           const tx = await client.cancelOrder(
             subaccount,
@@ -95,12 +93,12 @@ async function test(): Promise<void> {
           );
           console.log('**Cancel Order Tx**');
           console.log(tx);
-        
-          } catch (error) {
-            console.log(error.message);
-          }
+
+        } catch (error) {
+          console.log(error.message);
         }
-      }        
+      }
+    }
   }
 }
 
