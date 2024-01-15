@@ -27,7 +27,7 @@ async function test(): Promise<void> {
   const indexerClient = new IndexerClient(Network.testnet().indexerConfig);
 
   // //////////////////// Set mnemonic here //////////////////////
-  const mnemonic = 'mirror actor skill push coach wait confirm orchard lunch mobile athlete gossip awake miracle matter bus reopen team ladder lazy list timber render wait';
+  const mnemonic = '<FILL OUT>';
   const wallet = await LocalWallet.fromMnemonic(mnemonic, BECH32_PREFIX);
   console.log(wallet);
 
